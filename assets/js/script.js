@@ -16,7 +16,7 @@ let changeBackgroundInterval = 22000;
             startInterval();
         },
         randomizeImage = () => {
-            console.log("2");
+            // console.log("2");
             const w = el.getAttribute("data-width") ?? 1920;
             const h = el.getAttribute("data-height") ?? 1080;
             let preImg = new Image();
@@ -167,11 +167,11 @@ const closeCard = (card) => {
     document.querySelector(".dock").addEventListener("click", function (e) {
         const item = e.target.closest(".dock-item");
         if(!item)   return;
-        console.log(item);
+        // console.log(item);
         const cardID = item.id.startsWith("ico-")?item.id.slice(4):item.id;
         const card = document.querySelector(".card#"+cardID);
         if(!card){
-            console.log("createCard: " + cardID);
+            // console.log("createCard: " + cardID);
             if(!createCard(cardID)) return;
             item.classList.add("active");
             return;
@@ -182,16 +182,16 @@ const closeCard = (card) => {
     });
     const createCard = (cardID) => {
         const funcName = "createCard_"+cardID.replace("-","_");
-        console.log("funcName = " + funcName);
-        console.log("typeof window[" + funcName + "] = " + typeof window[funcName]);
+        // console.log("funcName = " + funcName);
+        // console.log("typeof window[" + funcName + "] = " + typeof window[funcName]);
         if(typeof window[funcName] === "function"){
             const card = window[funcName]();
-            console.log(card);
+            // console.log(card);
             if(!card)   return false;
             cardWrapper.appendChild(card);
             return true;
         }
-        console.log("func not found");
+        // console.log("func not found");
         return false;
     }
 })();
