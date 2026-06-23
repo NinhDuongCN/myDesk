@@ -1,0 +1,156 @@
+<style>
+  @charset "UTF-8";
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+  @font-face {
+    font-family: Lexend;
+    src: url("../../assets/font/Lexend-VariableFont_wght.ttf") format("truetype");
+  }
+
+  /* :root {
+    background: #333;
+  } */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lexend, sans-serif;
+    scrollbar-width: none;
+  }
+
+  .mini-calendar {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: #e0e0e0;
+    padding: 4px;
+    border-radius: 6px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 12fr;
+    gap: 1px;
+  }
+
+  .cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    & * {
+      font-size: clamp(13px, 4vw, 20px);
+    }
+
+    &>button {
+      width: fit-content;
+      height: fit-content;
+      background: #333;
+      color: #eee;
+      border: 1px solid #444;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: .1ch .8ch;
+    }
+
+    &>.cal-title>select {
+      color: #eee;
+      outline: none;
+      border: none;
+      background: transparent;
+      padding: 0 .5ch;
+
+      &:optional {
+        background: #111A;
+        scrollbar-width: none;
+      }
+    }
+  }
+
+  .cal-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    font-size: clamp(10px, 3vw, 16px);
+    &>div{
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+      background: #26262655;
+      /* opacity: .35; */
+      border-radius: 3px;
+    }
+  }
+
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* grid-auto-rows: 20px; */
+    grid-template-rows: repeat(6, 1fr);
+    gap: 1px;
+
+    &>.day {
+      position: relative;
+      font-size: clamp(13px, 4vw, 24px);
+      /* padding: 1px 2px; */
+      padding-top: clamp(1px, 1vw, 8px);
+      padding-left: clamp(2px, 1vw, 10px);
+      border-radius: 3px;
+      background: #262626CD;
+      cursor: default;
+
+      &:hover{
+        background: #26262688;
+        border: 1px solid #74ca7788;
+      }
+
+      &.other:not(:hover) {
+        opacity: .35;
+      }
+
+      &.today {
+        border: 1px solid #4caf50;
+        background: #2f3b2f;
+      }
+
+      &>.lunar {
+        position: absolute;
+        bottom: 1px;
+        right: 2px;
+        font-size: clamp(9px, 2vw, 20px);
+        color: #aaa;
+      }
+    }
+  }
+
+</style>
+</head>
+
+<body>
+
+
+  <div class="mini-calendar">
+    <div class="cal-header">
+      <button id="prevM">&#10094;</button>
+      <div class="cal-title">
+        <select id="mSel"></select>
+        <select id="ySel"></select>
+      </div>
+      <button id="nextM">&#10095;</button>
+    </div>
+
+    <div class="cal-week">
+      <div>T2</div>
+      <div>T3</div>
+      <div>T4</div>
+      <div>T5</div>
+      <div>T6</div>
+      <div>T7</div>
+      <div>CN</div>
+    </div>
+
+    <div id="calDays" class="cal-grid"></div>
+  </div>
+
+
+  <script src="../../assets/js/solar2lunar.js"></script>
+  <script src="./calendar.js"></script>

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+@font-face {
+    font-family: Lexend;
+    src: url("../font/Lexend-VariableFont_wght.ttf") format("truetype");
+}
+
+[data-theme="dark"],
+:root,
+body,
+body.dark {
+    --header_bg: #222222AA;
+    --bg: rgb(24,18,18);/*#0d1117;*/
+    --text-color: #fefefe;
+    --text-link: #0077CC;
+    --card: #222;/*#161b22;*/
+    --primary: #2f81f7;
+    --header_box-shadow: 0 2px 8px rgba(255, 255, 255, 0.10);
+    --btnOpenLink: url("../img/btnOpenLink_light.svg");
+    --card_gradient: linear-gradient(135deg, #60a5fa, #3b82f6);
+    --card_box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.10),
+                       -2px -4px 8px rgba(255, 255, 255, 0.10);
+}
+
+:root:has(#toggle-theme:checked),
+.body.light {
+    --header_bg: #EEEEEEAA;
+    --bg: #f5f5f5;
+    --text: #111;
+    --text-link: #0077CC;
+    --card: #ffffff;
+    --primary: #0078ff;
+    --header_box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+    --btnOpenLink: url("../img/btnOpenLink_dark.svg");
+    --card_gradient: linear-gradient(135deg, #00c6fe, #0073ff);
+    --card_box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.16);
+
+
+}

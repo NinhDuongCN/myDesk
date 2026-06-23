@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="linear-gradient" x1="26.75" y1="128" x2="229.25" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#aff0ed"/>
+      <stop offset=".2" stop-color="#e8d8dd"/>
+      <stop offset=".49" stop-color="#edefe8"/>
+      <stop offset=".89" stop-color="#e8d8dd"/>
+      <stop offset="1" stop-color="#b5d8d7"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="35.5" y1="128" x2="220.5" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff7300"/>
+      <stop offset=".18" stop-color="#f97c00"/>
+      <stop offset=".47" stop-color="#ea9502"/>
+      <stop offset=".55" stop-color="#e59e03"/>
+      <stop offset=".87" stop-color="#e5c500"/>
+      <stop offset=".89" stop-color="#e3c000"/>
+      <stop offset=".92" stop-color="#ddb300"/>
+      <stop offset=".95" stop-color="#d49e00"/>
+      <stop offset=".98" stop-color="#c68100"/>
+      <stop offset=".99" stop-color="#bf6f00"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="77.62" y1="100.5" x2="176.38" y2="100.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#aff0ed"/>
+      <stop offset=".27" stop-color="#e8d8dd"/>
+      <stop offset=".51" stop-color="#edefe8"/>
+      <stop offset=".73" stop-color="#e8d8dd"/>
+      <stop offset="1" stop-color="#93deed"/>
+    </linearGradient>
+  </defs>
+  <g id="vienNgoai">
+    <path d="M26.96,38.23c13.63-8.86,50.07-29.99,101.3-29.98,50.92.02,87.18,20.92,100.84,29.76.77,22.57-.85,64.08-21.49,110.31-24.07,53.93-61.19,85.53-79.84,99.43-18.47-13.64-55.76-45.04-79.77-98.98C27.3,102.29,26.03,60.56,26.96,38.23Z" style="fill: url(#linear-gradient);"/>
+  </g>
+  <g id="vienTrong">
+    <path d="M35.7,44.6c12.45-8.23,45.74-27.87,92.55-27.85,46.52.02,79.64,19.43,92.12,27.65.7,20.96-.78,59.53-19.63,102.48-21.99,50.1-55.9,79.45-72.94,92.37-16.87-12.67-50.94-41.84-72.88-91.95-18.91-43.19-20.07-81.95-19.22-102.7Z" style="fill: url(#linear-gradient-2);"/>
+  </g>
+  <g id="N___">
+    <path d="M77.62,93.75c24.67-.17,49.33-.33,74-.5-8.33-25.42-16.67-50.83-25-76.25,16.58,29.5,33.17,59,49.75,88.5-25.08.08-50.17.17-75.25.25,8.67,26.08,17.33,52.17,26,78.25-16.5-30.08-33-60.17-49.5-90.25Z" style="fill: url(#linear-gradient-3);"/>
+  </g>
+</svg>

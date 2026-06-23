@@ -1,0 +1,78 @@
+/* Header */
+
+header{
+    background: var(--header_bg);
+    backdrop-filter: blur(12px);
+    /* box-shadow: 0 2px 16px var(--shadow_color); */
+    box-shadow: var(--header_box-shadow);
+    border-bottom: 1px solid #ccc2;
+}
+
+.logo {
+    font-family: var(--accent-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+    height: 100%;
+}
+
+.header-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.switch#swLang{
+    &>input[type="checkbox"]{
+        &+label::after{
+            content: "VI";
+        }
+        &:checked+label::after{
+            content: "EN";
+        }
+    }
+}
+
+.toggle-switch#tgTheme{
+    & label::after{
+        content: "🌙";
+    }
+}
+
+/* .switch {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    width: 40px;
+    height: 20px;
+    background: #888;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.slider::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background: var(--primary);
+}
+
+input:checked + .slider::after {
+    transform: translateX(20px);
+} */

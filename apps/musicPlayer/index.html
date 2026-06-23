@@ -1,0 +1,185 @@
+<style>
+    @font-face {
+        font-family: 'Mea Culpa';
+        src: url('./fonts/MeaCulpa-Regular.ttf') format('truetype');
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #audioController {
+        background-color: rgba(0, 0, 0, 0.22);
+        height: fit-content;
+        padding: 1.5vh 4.5vh 0.5vh 4.5vh;
+        width: min(100%, 360px);
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        justify-content: space-evenly;
+        border: none;
+        border-radius: 12vw;
+        margin-left: 50%;
+
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        margin-bottom: 2vw;
+    }
+
+    #audioController>p {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-family: 'Mea Culpa', cursive;
+        font-size: 3.5vh;
+        color: white;
+        text-shadow: #000000 5px -4px 1em;
+        margin: 1vh 0 0 0;
+        cursor: context-menu;
+    }
+
+    .ctrlBtn {
+        height: 15vw;
+        width: 15vw;
+        margin: 0 2vh;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: block;
+        cursor: pointer;
+
+        -webkit-transition: all ease 0.15s;
+        -moz-transition: all ease 0.15s;
+        -o-transition: all ease 0.15s;
+        transition: all ease 0.15s;
+    }
+
+    .ctrlBtn#btnComment {
+        background-image: url('./images/btns/au_comment.svg');
+        -o-transform: translateY(15%) scale(0.9);
+        -ms-transform: translateY(15%) scale(0.9);
+        -moz-transform: translateY(15%) scale(0.9);
+        -webkit-transform: translateY(15%) scale(0.9);
+        transform: translateY(15%) scale(0.9);
+    }
+
+    .ctrlBtn#btnPlayPause {
+        background-image: url('./images/btns/au_play.svg');
+        background-color: rgba(255, 255, 255, 0.22);
+        border-radius: 50%;
+        background-size: 70%;
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .ctrlBtn#btnPlayPause:hover {
+        background-color: rgba(255, 255, 255, 0.32);
+    }
+
+    .ctrlBtn#btnNext {
+        background-image: url('./images/btns/au_next.svg');
+        -o-transform: translateY(10%) scale(0.8);
+        -ms-transform: translateY(10%) scale(0.8);
+        -moz-transform: translateY(10%) scale(0.8);
+        -webkit-transform: translateY(10%) scale(0.8);
+        transform: translateY(10%) scale(0.8);
+    }
+</style>
+<div class="controllerGroup" id="audioController">
+    <audio id="au" onended="PlayAudio()" onplay="SetBtnPause()" onpause="SetBtnPlay()" src="#" hidden
+        aria-hidden="true"></audio>
+    <div class="ctrlBtn" id="btnComment" onclick="BtnCommentClicked()"></div>
+    <div class="ctrlBtn" id="btnPlayPause" onclick="BtnClicked()"></div>
+    <div class="ctrlBtn" id="btnNext" onclick="PlayAudio()"></div>
+    <!-- <p>Love you to the Moon and back</p> -->
+</div>
+<script>
+    var curAudio;
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        CreateRandomLstNhac();
+        PlayAudio();
+    });
+
+
+
+    var changeaudio = false;
+
+    //
+    //#region play_audio
+    //
+    //var audioCount = 120; //Số lượng bài hát trong danh sách; NHỚ THÊM GIÁ TRỊ TRONG MẢNG tmplstNhac Ở HÀM CreateRandomLstNhac
+    var isPlaying = false;
+    var lstNhac = new Array();
+
+    function CreateRandomLstNhac() {
+        var tmplstNhac = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+            10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+            30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+            40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+            60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+            70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+            80, 81, 81, 83, 84, 85, 86, 87, 88, 89,
+            90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
+            100, 101, 102, 103, 104, 105, 106, 107, 108, 109,
+            110, 111, 112, 113, 114, 115, 116, 117, 118, 119
+        ];
+
+        //lstNhac = new Array();
+        for (var i = 0; i < 120 /*audioCount*/; i++) {
+            lstNhac.push(tmplstNhac.splice(Math.floor(Math.random() * tmplstNhac.length), 1));
+        }
+    }
+
+    function PlayAudio() {
+        var aud = document.getElementById("au");
+        curAudio = lstNhac.shift();
+        aud.setAttribute("src", "./audios/" + curAudio);
+        aud.play();
+        if (lstNhac.length === 0) {
+            CreateRandomLstNhac();
+        }
+    }
+
+    function SetBtnPause() {
+        document.getElementById("btnPlayPause").style.backgroundImage = "url('./images/btns/au_pause.svg')";//setAttribute("src", imgPause);
+        isPlaying = true;
+        //document.getElementById("btnPlayPause").hidden = true;
+    }
+
+    function SetBtnPlay() {
+        document.getElementById("btnPlayPause").style.backgroundImage = "url('./images/btns/au_play.svg')";//setAttribute("src", imgPlay);
+        isPlaying = false;
+    }
+
+    function BtnClicked() {
+        //changeaudio=true;
+        var aud = document.getElementById("au");
+        if (isPlaying) {
+            aud.pause();
+        }
+        else {
+            try {
+                aud.play();
+            }
+            catch {
+                PlayAudio();
+            }
+        }
+        //changeaudio=false;
+    }
+</script>

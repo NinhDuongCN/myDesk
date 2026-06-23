@@ -1,0 +1,35 @@
+
+@media screen and (max-width: 768px){
+
+    .tags{
+        justify-content: start;
+    }
+
+
+}
+
+@media screen and (max-width: 500px){
+    .btn:hover {
+        opacity: 1;
+    }
+
+    .btn.title-cta{
+        max-width: calc(1lh + 1rem) !important;
+        /* padding: .5rem !important; */
+        &>*{
+                flex-shrink: 0; 
+            }
+    }
+
+    html:has(.contact-form-wrapper:focus-within){
+        scroll-snap-type: none;
+    }
+
+    
+}
+
+@media screen and (max-height: 730px) and (orientation: landscape){
+    html{
+        scroll-snap-type: none;
+    }
+}
