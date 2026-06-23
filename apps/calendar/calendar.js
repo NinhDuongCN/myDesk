@@ -107,7 +107,7 @@ function createCard_calendar() {
     </div>
     <div class="card-body">
         <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
-            src="/apps/calendar/"></iframe>
+            src="./apps/calendar/"></iframe>
     </div>
 `;
   return card;
