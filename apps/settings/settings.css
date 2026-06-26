@@ -1,0 +1,139 @@
+.app-settings {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background: transparent;
+    color: #e0e0e0;
+    padding: .5rem;
+    border-radius: 6px;
+    display: grid;
+    grid-template-rows: 40px 1fr 40px;
+    /* grid-template-columns: 1fr 2fr; */
+    gap: 1px;
+
+    &>* {
+        min-width: 0;
+    }
+}
+
+.app-title {
+    font-size: larger;
+    font-weight: bold;
+    border-bottom: 1px solid #e0e0e055;
+    margin: auto 0;
+    padding: 0 0 .5ch 0;
+}
+
+.app-main {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.app-quick-actions {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    &>ul {
+        height: 100%;
+        width: fit-content;
+        margin: auto;
+        background-color: #e0e0e022;
+        border: 1px solid #e0e0e044;
+        padding: 0 1ch;
+        /* padding: 3px 1ch; */
+        border-radius: 1ch;
+        backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: end;
+        gap: 1ch;
+
+        list-style: none;
+
+        & * {
+            cursor: default;
+            transition: all ease .5s;
+        }
+
+        &>li {
+            /* height: 100%; */
+            min-height: 40px;
+            min-width: 40px;
+            height: fit-content;
+            width: fit-content;
+            border-radius: .25rem;
+            /* flex: 1; */
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            /* padding: 4px; */
+
+            /* &.active {
+                border-bottom: 1px solid #333;
+            } */
+
+            &>* {
+                width: 100%;
+                height: 100%;
+            }
+
+            &>svg {
+                height: 32px;
+                width: 32px;
+            }
+
+            &>svg * {
+                color: #333;
+            }
+
+            &>svg.act-icon.efs>path{
+                transform: rotate(180deg);
+                &#tl{
+                    transform-origin: 25% 25%;
+                }
+                &#tr{
+                    transform-origin: 75% 25%;
+                }
+                &#bl{
+                    transform-origin: 25% 75%;
+                }
+                &#br{
+                    transform-origin: 75% 75%;
+                }
+            }
+
+
+            &:hover {
+                /* background-color: #ffffff44; */
+
+                &::after {
+                    content: attr(data-title);
+                    font-size: xx-small;
+                }
+                &:has(svg.act-icon.efs)::after{
+                    content: attr(data-alt-title);
+                }
+
+                /* &.active {
+                    border-bottom: 1px solid #fff;
+                } */
+
+                &>svg {
+                    transform: scale(.8);
+                }
+
+                &>svg * {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

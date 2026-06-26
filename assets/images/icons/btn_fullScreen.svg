@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="btnFullScreen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor">
+  <path id="tl" d="M6,16h-2V6c0-1.1.9-2,2-2h10v2H6v10Z"/>
+  <path id="dl" d="M6,34h10v2H6c-1.1,0-2-.9-2-2v-10h2v10Z"/>
+  <path id="tr" d="M36,6v10h-2V6h-10v-2h10c1.1,0,2,.9,2,2Z"/>
+  <path id="dr" d="M34,24h2v10c0,1.1-.9,2-2,2h-10v-2h10v-10Z"/>
+  <rect id="center" x="18" y="18" width="4" height="4" rx="1" ry="1"/>
+</svg>
