@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const ySel = document.getElementById("ySel");
   const calDays = document.getElementById("calDays");
 
+  if(!mSel || !ySel || !calDays) return;
+
   // ====== TẠO SELECT ======
   for (let m = 1; m <= 12; m++) {
     mSel.innerHTML += `<option value="${m}">Tháng ${m}</option>`;

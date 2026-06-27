@@ -100,6 +100,12 @@ let curDate; // cache ngày để tránh phải cập nhật lại ngày nhiều
 
 
 //=======================================
+//               fullscreen
+//=======================================
+document.onfullscreenchange = fullScreenChanged;
+
+
+//=======================================
 //         card-controllers
 //=======================================
 // (() => {
